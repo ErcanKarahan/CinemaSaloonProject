@@ -1,0 +1,716 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2EA399CC-1C7A-4561-A291-B40EEA27FD5B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.WEBUI</RootNamespace>
+    <AssemblyName>Project.WEBUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44390</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="OuterTools\404.html" />
+    <Content Include="OuterTools\book-final.html" />
+    <Content Include="OuterTools\book1.html" />
+    <Content Include="OuterTools\book2.html" />
+    <Content Include="OuterTools\book3-buy.html" />
+    <Content Include="OuterTools\book3-reserve.html" />
+    <Content Include="OuterTools\cinema-list.html" />
+    <Content Include="OuterTools\column.html" />
+    <Content Include="OuterTools\coming-soon.html" />
+    <Content Include="OuterTools\contact.html" />
+    <Content Include="OuterTools\css\external\idangerous.swiper.css" />
+    <Content Include="OuterTools\css\external\jquery.selectbox.css" />
+    <Content Include="OuterTools\css\external\magnific-popup.css" />
+    <Content Include="OuterTools\css\gozha-nav.css" />
+    <Content Include="OuterTools\css\img\select-icons.png" />
+    <Content Include="OuterTools\css\style.css" />
+    <Content Include="OuterTools\css\touch.css" />
+    <Content Include="OuterTools\fonts\aleo-bold.svg" />
+    <Content Include="OuterTools\fonts\aleo-bolditalic.svg" />
+    <Content Include="OuterTools\fonts\aleo-italic.svg" />
+    <Content Include="OuterTools\fonts\aleo-regular.svg" />
+    <Content Include="OuterTools\fonts\MuseoSans_500-webfont.svg" />
+    <Content Include="OuterTools\gallery-four.html" />
+    <Content Include="OuterTools\gallery-three.html" />
+    <Content Include="OuterTools\gallery-two.html" />
+    <Content Include="OuterTools\icon-font.html" />
+    <Content Include="OuterTools\images\ajax-loader.GIF" />
+    <Content Include="OuterTools\images\apple-store.svg" />
+    <Content Include="OuterTools\images\banners\boots.jpg" />
+    <Content Include="OuterTools\images\banners\bra.jpg" />
+    <Content Include="OuterTools\images\banners\film.jpg" />
+    <Content Include="OuterTools\images\banners\sale.jpg" />
+    <Content Include="OuterTools\images\banners\sport.jpg" />
+    <Content Include="OuterTools\images\bg-image.jpg" />
+    <Content Include="OuterTools\images\bg-video.jpg" />
+    <Content Include="OuterTools\images\blanck.png" />
+    <Content Include="OuterTools\images\cinema\cinema-inner1.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner2.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner3.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner4.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner5.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner6.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner7.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner8.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema-inner9.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema1.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema10.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema11.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema12.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema2.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema3.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema4.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema5.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema6.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema7.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema8.jpg" />
+    <Content Include="OuterTools\images\cinema\cinema9.jpg" />
+    <Content Include="OuterTools\images\client-photo\auth.png" />
+    <Content Include="OuterTools\images\client-photo\client1.jpg" />
+    <Content Include="OuterTools\images\client-photo\post-annual.jpg" />
+    <Content Include="OuterTools\images\client-photo\post-awards.jpg" />
+    <Content Include="OuterTools\images\client-photo\post-img1.jpg" />
+    <Content Include="OuterTools\images\client-photo\post-img2.jpg" />
+    <Content Include="OuterTools\images\client-photo\post-thor.jpg" />
+    <Content Include="OuterTools\images\client-photo\single-post.jpg" />
+    <Content Include="OuterTools\images\client-photo\thumb1.jpg" />
+    <Content Include="OuterTools\images\close-open-menu-icon.png" />
+    <Content Include="OuterTools\images\comment\avatar-dmitriy.jpg" />
+    <Content Include="OuterTools\images\comment\avatar-olia.jpg" />
+    <Content Include="OuterTools\images\comment\avatar-sia.jpg" />
+    <Content Include="OuterTools\images\comment\avatar.jpg" />
+    <Content Include="OuterTools\images\components\arrow.png" />
+    <Content Include="OuterTools\images\components\arrow.svg" />
+    <Content Include="OuterTools\images\components\bg-movie.png" />
+    <Content Include="OuterTools\images\components\bg-time-hover.png" />
+    <Content Include="OuterTools\images\components\bg-time.png" />
+    <Content Include="OuterTools\images\components\bg-time__special-hover.png" />
+    <Content Include="OuterTools\images\components\bg-time__special.png" />
+    <Content Include="OuterTools\images\components\bg-tooltip.png" />
+    <Content Include="OuterTools\images\components\checked.png" />
+    <Content Include="OuterTools\images\components\close.png" />
+    <Content Include="OuterTools\images\components\close.svg" />
+    <Content Include="OuterTools\images\components\corner-lb.png" />
+    <Content Include="OuterTools\images\components\corner-left.png" />
+    <Content Include="OuterTools\images\components\corner-lt.png" />
+    <Content Include="OuterTools\images\components\corner-rb.png" />
+    <Content Include="OuterTools\images\components\corner-right.png" />
+    <Content Include="OuterTools\images\components\corner-rt.png" />
+    <Content Include="OuterTools\images\components\cursor.png" />
+    <Content Include="OuterTools\images\components\line-marker.png" />
+    <Content Include="OuterTools\images\components\plus-minus-icon.png" />
+    <Content Include="OuterTools\images\components\price-pattern.jpg" />
+    <Content Include="OuterTools\images\components\scarf.png" />
+    <Content Include="OuterTools\images\components\sits_mobile.png" />
+    <Content Include="OuterTools\images\components\wave-danger.svg" />
+    <Content Include="OuterTools\images\components\wave-dark-sm.svg" />
+    <Content Include="OuterTools\images\components\wave-dark.svg" />
+    <Content Include="OuterTools\images\components\wave-hover.svg" />
+    <Content Include="OuterTools\images\components\wave-light-sm.svg" />
+    <Content Include="OuterTools\images\components\wave-light.svg" />
+    <Content Include="OuterTools\images\components\wave-main.svg" />
+    <Content Include="OuterTools\images\components\wave.svg" />
+    <Content Include="OuterTools\images\error.png" />
+    <Content Include="OuterTools\images\gallery\large\item-1.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-11.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-12.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-13.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-15.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-16.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-2.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-3.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-5.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-6.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-7.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-8.jpg" />
+    <Content Include="OuterTools\images\gallery\large\item-9.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-1.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-10.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-11.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-12.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-13.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-14.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-15.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-16.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-2.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-3.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-4.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-5.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-6.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-7.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-8.jpg" />
+    <Content Include="OuterTools\images\gallery\thumb\item-9.jpg" />
+    <Content Include="OuterTools\images\google-play.svg" />
+    <Content Include="OuterTools\images\icons\actors.svg" />
+    <Content Include="OuterTools\images\icons\camera.svg" />
+    <Content Include="OuterTools\images\icons\comment.svg" />
+    <Content Include="OuterTools\images\icons\countrr.svg" />
+    <Content Include="OuterTools\images\icons\country.svg" />
+    <Content Include="OuterTools\images\icons\director.svg" />
+    <Content Include="OuterTools\images\icons\fave-hover.svg" />
+    <Content Include="OuterTools\images\icons\fave.svg" />
+    <Content Include="OuterTools\images\icons\film.svg" />
+    <Content Include="OuterTools\images\icons\fiml.svg" />
+    <Content Include="OuterTools\images\icons\gift-dark.svg" />
+    <Content Include="OuterTools\images\icons\gift-light.svg" />
+    <Content Include="OuterTools\images\icons\heart.svg" />
+    <Content Include="OuterTools\images\icons\left-arrow-danger.svg" />
+    <Content Include="OuterTools\images\icons\left-arrow-dark.svg" />
+    <Content Include="OuterTools\images\icons\left-arrow.svg" />
+    <Content Include="OuterTools\images\icons\location.svg" />
+    <Content Include="OuterTools\images\icons\mause.svg" />
+    <Content Include="OuterTools\images\icons\reply-hover.svg" />
+    <Content Include="OuterTools\images\icons\reply.svg" />
+    <Content Include="OuterTools\images\icons\retweet-hover.svg" />
+    <Content Include="OuterTools\images\icons\retweet.svg" />
+    <Content Include="OuterTools\images\icons\right-arrow-danger.svg" />
+    <Content Include="OuterTools\images\icons\right-arrow-dark.svg" />
+    <Content Include="OuterTools\images\icons\right-arrow.svg" />
+    <Content Include="OuterTools\images\icons\sm-left-arrow-hover.svg" />
+    <Content Include="OuterTools\images\icons\sm-left-arrow.svg" />
+    <Content Include="OuterTools\images\icons\sm-right-arrow-hover.svg" />
+    <Content Include="OuterTools\images\icons\sm-right-arrow.svg" />
+    <Content Include="OuterTools\images\icons\smile-dark.svg" />
+    <Content Include="OuterTools\images\icons\smile-light.svg" />
+    <Content Include="OuterTools\images\icons\snow-dark.svg" />
+    <Content Include="OuterTools\images\icons\snow-light.svg" />
+    <Content Include="OuterTools\images\icons\speech.svg" />
+    <Content Include="OuterTools\images\icons\stars-light.svg" />
+    <Content Include="OuterTools\images\icons\stars.svg" />
+    <Content Include="OuterTools\images\icons\stroke.svg" />
+    <Content Include="OuterTools\images\icons\users-dark.svg" />
+    <Content Include="OuterTools\images\icons\users-light.svg" />
+    <Content Include="OuterTools\images\icons\wizard-dark.svg" />
+    <Content Include="OuterTools\images\icons\wizard-light.svg" />
+    <Content Include="OuterTools\images\logo-dark.png" />
+    <Content Include="OuterTools\images\logo-lg.png" />
+    <Content Include="OuterTools\images\logo.png" />
+    <Content Include="OuterTools\images\movie\deneme.jpeg" />
+    <Content Include="OuterTools\images\movie\deneme2.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img1-lg.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img1.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img2-lg.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img2.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img3.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img4.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img5.jpg" />
+    <Content Include="OuterTools\images\movie\movie-img6.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample1.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample10.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample2.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample3.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample4.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample5.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample6.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample7.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample8.jpg" />
+    <Content Include="OuterTools\images\movie\movie-sample9.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time1.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time10.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time11.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time12.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time13.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time14.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time2.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time3.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time4.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time5.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time6.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time7.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time8.jpg" />
+    <Content Include="OuterTools\images\movie\movie-time9.jpg" />
+    <Content Include="OuterTools\images\movie\movie-video1.jpg" />
+    <Content Include="OuterTools\images\movie\movie-video2.jpg" />
+    <Content Include="OuterTools\images\movie\single-movie.jpg" />
+    <Content Include="OuterTools\images\new\news-1.jpg" />
+    <Content Include="OuterTools\images\new\news-2.jpg" />
+    <Content Include="OuterTools\images\new\news-3.jpg" />
+    <Content Include="OuterTools\images\new\news-4.jpg" />
+    <Content Include="OuterTools\images\new\news-5.jpg" />
+    <Content Include="OuterTools\images\payment\pay1.png" />
+    <Content Include="OuterTools\images\payment\pay2.png" />
+    <Content Include="OuterTools\images\payment\pay3.png" />
+    <Content Include="OuterTools\images\payment\pay4.png" />
+    <Content Include="OuterTools\images\payment\pay5.png" />
+    <Content Include="OuterTools\images\payment\pay6.png" />
+    <Content Include="OuterTools\images\payment\pay7.png" />
+    <Content Include="OuterTools\images\rate\cancel-off.png" />
+    <Content Include="OuterTools\images\rate\cancel-on.png" />
+    <Content Include="OuterTools\images\rate\star-half.png" />
+    <Content Include="OuterTools\images\rate\star-off.png" />
+    <Content Include="OuterTools\images\rate\star-off.svg" />
+    <Content Include="OuterTools\images\rate\star-on.png" />
+    <Content Include="OuterTools\images\rate\star-on.svg" />
+    <Content Include="OuterTools\images\slides\first-slide.jpg" />
+    <Content Include="OuterTools\images\slides\next-slide.jpg" />
+    <Content Include="OuterTools\images\tickets.png" />
+    <Content Include="OuterTools\images\trailers\trailer-1.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-10.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-11.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-12.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-13.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-14.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-2.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-3.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-4.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-5.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-6.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-7.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-8.jpg" />
+    <Content Include="OuterTools\images\trailers\trailer-9.jpg" />
+    <Content Include="OuterTools\images\windows-store.svg" />
+    <Content Include="OuterTools\index.html" />
+    <Content Include="OuterTools\js\custom.js" />
+    <Content Include="OuterTools\js\external\count.down.js" />
+    <Content Include="OuterTools\js\external\form-element.js" />
+    <Content Include="OuterTools\js\external\idangerous.swiper.min.js" />
+    <Content Include="OuterTools\js\external\infobox.js" />
+    <Content Include="OuterTools\js\external\inview.min.js" />
+    <Content Include="OuterTools\js\external\jquery-3.1.1.min.js" />
+    <Content Include="OuterTools\js\external\jquery-migrate-1.2.1.min.js" />
+    <Content Include="OuterTools\js\external\jquery.inview.js" />
+    <Content Include="OuterTools\js\external\jquery.knob.js" />
+    <Content Include="OuterTools\js\external\jquery.magnific-popup.min.js" />
+    <Content Include="OuterTools\js\external\jquery.raty.js" />
+    <Content Include="OuterTools\js\external\jquery.selectbox-0.2.min.js" />
+    <Content Include="OuterTools\js\external\jquery.waypoints.min.js" />
+    <Content Include="OuterTools\js\external\min\count.down.min.js" />
+    <Content Include="OuterTools\js\external\min\jquery.knob.min.js" />
+    <Content Include="OuterTools\js\external\min\twitterfeed.min.js" />
+    <Content Include="OuterTools\js\external\modernizr.custom.js" />
+    <Content Include="OuterTools\js\external\swiper.js" />
+    <Content Include="OuterTools\js\external\twitterfeed.js" />
+    <Content Include="OuterTools\js\form.js" />
+    <Content Include="OuterTools\js\jquery.mobile.menu.js" />
+    <Content Include="OuterTools\js\min\custom.min.js" />
+    <Content Include="OuterTools\js\min\form.min.js" />
+    <Content Include="OuterTools\js\min\jquery.mobile.menu.min.js" />
+    <Content Include="OuterTools\login.html" />
+    <Content Include="OuterTools\movie-list-full.html" />
+    <Content Include="OuterTools\movie-list-left.html" />
+    <Content Include="OuterTools\movie-list-right.html" />
+    <Content Include="OuterTools\movie-page-full.html" />
+    <Content Include="OuterTools\movie-page-left.html" />
+    <Content Include="OuterTools\movie-page-right.html" />
+    <Content Include="OuterTools\news-full.html" />
+    <Content Include="OuterTools\news-left.html" />
+    <Content Include="OuterTools\news-right.html" />
+    <Content Include="OuterTools\offers.html" />
+    <Content Include="OuterTools\page-elements.html" />
+    <Content Include="OuterTools\rates-full.html" />
+    <Content Include="OuterTools\rates-left.html" />
+    <Content Include="OuterTools\rates-right.html" />
+    <Content Include="OuterTools\revolution\assets\coloredbg.png" />
+    <Content Include="OuterTools\revolution\assets\gridtile.png" />
+    <Content Include="OuterTools\revolution\assets\gridtile_3x3.png" />
+    <Content Include="OuterTools\revolution\assets\gridtile_3x3_white.png" />
+    <Content Include="OuterTools\revolution\assets\gridtile_white.png" />
+    <Content Include="OuterTools\revolution\assets\loader.gif" />
+    <Content Include="OuterTools\revolution\assets\sources\fb.png" />
+    <Content Include="OuterTools\revolution\assets\sources\fr.png" />
+    <Content Include="OuterTools\revolution\assets\sources\ig.png" />
+    <Content Include="OuterTools\revolution\assets\sources\post.png" />
+    <Content Include="OuterTools\revolution\assets\sources\revolution_slide1.png" />
+    <Content Include="OuterTools\revolution\assets\sources\revolution_slide2.png" />
+    <Content Include="OuterTools\revolution\assets\sources\tw.png" />
+    <Content Include="OuterTools\revolution\assets\sources\vm.png" />
+    <Content Include="OuterTools\revolution\assets\sources\wc.png" />
+    <Content Include="OuterTools\revolution\assets\sources\yt.png" />
+    <Content Include="OuterTools\revolution\assets\svg\index.php" />
+    <Content Include="OuterTools\revolution\css\closedhand.cur" />
+    <Content Include="OuterTools\revolution\css\index.php" />
+    <Content Include="OuterTools\revolution\css\layers.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\ares.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\custom.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\dione.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\erinyen.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\gyges.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\hades.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\hebe.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\hephaistos.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\hermes.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\hesperiden.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\metis.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\persephone.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\uranus.css" />
+    <Content Include="OuterTools\revolution\css\navigation-skins\zeus.css" />
+    <Content Include="OuterTools\revolution\css\navigation.css" />
+    <Content Include="OuterTools\revolution\css\openhand.cur" />
+    <Content Include="OuterTools\revolution\css\settings-ver.5.3.1.css" />
+    <Content Include="OuterTools\revolution\css\settings.css" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\index.php" />
+    <Content Include="OuterTools\revolution\fonts\index.php" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\css\index.php" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\fonts\index.php" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\index.php" />
+    <Content Include="OuterTools\revolution\fonts\revicons\index.php" />
+    <Content Include="OuterTools\revolution\fonts\revicons\revicons.svg" />
+    <Content Include="OuterTools\revolution\index.php" />
+    <Content Include="OuterTools\revolution\js\extensions\index.php" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\index.php" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.actions.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.carousel.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.kenburn.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.layeranimation.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.migration.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.navigation.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.parallax.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.slideanims.js" />
+    <Content Include="OuterTools\revolution\js\extensions\source\revolution.extension.video.js" />
+    <Content Include="OuterTools\revolution\js\index.php" />
+    <Content Include="OuterTools\revolution\js\jquery.themepunch.enablelog.js" />
+    <Content Include="OuterTools\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="OuterTools\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="OuterTools\revolution\js\source\index.php" />
+    <Content Include="OuterTools\revolution\js\source\jquery.themepunch.enablelog.js" />
+    <Content Include="OuterTools\revolution\js\source\jquery.themepunch.revolution.js" />
+    <Content Include="OuterTools\revolution\js\source\jquery.themepunch.tools.min.js" />
+    <Content Include="OuterTools\revolution\php\facebook\class-facebook.php" />
+    <Content Include="OuterTools\revolution\php\flickr\class-flickr.php" />
+    <Content Include="OuterTools\revolution\php\instagram\class-instagram.php" />
+    <Content Include="OuterTools\revolution\php\twitter\class-twitter.php" />
+    <Content Include="OuterTools\revolution\php\twitter\connection\Application.php" />
+    <Content Include="OuterTools\revolution\php\twitter\connection\ConnectionAbstract.php" />
+    <Content Include="OuterTools\revolution\php\twitter\connection\User.php" />
+    <Content Include="OuterTools\revolution\php\twitter\RestApi.php" />
+    <Content Include="OuterTools\revolution\php\vimeo\class-vimeo.php" />
+    <Content Include="OuterTools\revolution\php\youtube\class-youtube.php" />
+    <Content Include="OuterTools\single-cinema.html" />
+    <Content Include="OuterTools\single-page-full.html" />
+    <Content Include="OuterTools\single-page-left.html" />
+    <Content Include="OuterTools\single-page-right.html" />
+    <Content Include="OuterTools\trailer.html" />
+    <Content Include="OuterTools\twitteroauth\OAuth.php" />
+    <Content Include="OuterTools\twitteroauth\twitteroauth.php" />
+    <Content Include="OuterTools\typography.html" />
+    <Content Include="OuterTools\video\TravelIs.mp4" />
+    <Content Include="OuterTools\video\TravelIs.ogv" />
+    <Content Include="OuterTools\video\TravelIs.webm" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="OuterTools\css\less\base\base.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\alerts.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\background-variant.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\border-radius.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\buttons.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\center-block.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\clearfix.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\forms.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\gradients.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\grid-framework.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\grid.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\hide-text.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\image.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\labels.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\list-group.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\nav-divider.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\nav-vertical-align.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\opacity.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\pagination.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\panels.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\progress-bar.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\reset-filter.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\reset-text.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\resize.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\responsive-visibility.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\size.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\tab-focus.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\table-row.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\text-emphasis.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\text-overflow.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-mixins\vendor-prefixes.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-scaffolding.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-type.less" />
+    <Content Include="OuterTools\css\less\base\bootstrap-variables.less" />
+    <Content Include="OuterTools\css\less\base\normalize.less" />
+    <Content Include="OuterTools\css\less\base\vars.less" />
+    <Content Include="OuterTools\css\less\layout\bootstrap-grid.less" />
+    <Content Include="OuterTools\css\less\layout\responsive-utilities.less" />
+    <Content Include="OuterTools\css\less\objects\alerts.less" />
+    <Content Include="OuterTools\css\less\objects\buttons.less" />
+    <Content Include="OuterTools\css\less\objects\component-animations.less" />
+    <Content Include="OuterTools\css\less\objects\navbar.less" />
+    <Content Include="OuterTools\css\less\objects\navs.less" />
+    <Content Include="OuterTools\css\less\objects\objects.less" />
+    <Content Include="OuterTools\css\less\objects\panels.less" />
+    <Content Include="OuterTools\css\less\state\state.less" />
+    <Content Include="OuterTools\css\style.less" />
+    <Content Include="OuterTools\fonts\aleo-bold.eot" />
+    <Content Include="OuterTools\fonts\aleo-bold.ttf" />
+    <Content Include="OuterTools\fonts\aleo-bold.woff" />
+    <Content Include="OuterTools\fonts\aleo-bolditalic.eot" />
+    <Content Include="OuterTools\fonts\aleo-bolditalic.ttf" />
+    <Content Include="OuterTools\fonts\aleo-bolditalic.woff" />
+    <Content Include="OuterTools\fonts\aleo-italic.eot" />
+    <Content Include="OuterTools\fonts\aleo-italic.ttf" />
+    <Content Include="OuterTools\fonts\aleo-italic.woff" />
+    <Content Include="OuterTools\fonts\aleo-regular.eot" />
+    <Content Include="OuterTools\fonts\aleo-regular.ttf" />
+    <Content Include="OuterTools\fonts\aleo-regular.woff" />
+    <Content Include="OuterTools\fonts\MuseoSans_500-webfont.eot" />
+    <Content Include="OuterTools\fonts\MuseoSans_500-webfont.ttf" />
+    <Content Include="OuterTools\fonts\MuseoSans_500-webfont.woff" />
+    <Content Include="OuterTools\revolution\.DS_Store" />
+    <Content Include="OuterTools\revolution\assets\.DS_Store" />
+    <Content Include="OuterTools\revolution\assets\svg\svg.zip" />
+    <Content Include="OuterTools\revolution\css\.DS_Store" />
+    <Content Include="OuterTools\revolution\fonts\.DS_Store" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\.DS_Store" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="OuterTools\revolution\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\.DS_Store" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="OuterTools\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="OuterTools\revolution\fonts\revicons\revicons.eot" />
+    <Content Include="OuterTools\revolution\fonts\revicons\revicons.ttf" />
+    <Content Include="OuterTools\revolution\fonts\revicons\revicons.woff" />
+    <Content Include="OuterTools\revolution\info.cfg" />
+    <Content Include="OuterTools\revolution\js\.DS_Store" />
+    <Content Include="OuterTools\revolution\php\.DS_Store" />
+    <Content Include="OuterTools\revolution\php\twitter\.DS_Store" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VMClasses\AppUserVM.cs" />
+    <Compile Include="Models\VMClasses\MovieVM.cs" />
+    <Compile Include="Models\VMClasses\SeatListVM.cs" />
+    <Compile Include="Models\VMClasses\SeatVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterOk.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\GetName.cshtml" />
+    <Content Include="Views\Movie\Movie.cshtml" />
+    <Content Include="Views\Account\LostPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Movie\QueryDate.cshtml" />
+    <None Include="Views\Movie\Single.cshtml" />
+    <Content Include="Views\Reservation\Seat.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.BLL\Project.BLL.csproj">
+      <Project>{E8A67C12-F99A-4FB4-A5B1-3CC44E3C27D1}</Project>
+      <Name>Project.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.COMMON\Project.COMMON.csproj">
+      <Project>{3E53B4FB-ECFF-4E11-B63B-533BFDE1ABFC}</Project>
+      <Name>Project.COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.ENTITIES\Project.ENTITIES.csproj">
+      <Project>{EDA663B1-CF6A-4879-94D1-B927336516F2}</Project>
+      <Name>Project.ENTITIES</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51353</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44390/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
